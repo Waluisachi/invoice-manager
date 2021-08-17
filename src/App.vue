@@ -1,10 +1,27 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="container">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
   </div>
-  <router-view/>
+
 </template>
+
+<script>
+  // import Nav from "@/components/Nav.vue";
+  import Invoices from './assets/invoices';
+
+  if (!localStorage.getItem("invoices")) {
+    const parsed = JSON.stringify(Invoices);
+    localStorage.setItem("invoices", parsed)
+  }
+
+  export default {
+    
+  }
+</script>
 
 <style>
 #app {
